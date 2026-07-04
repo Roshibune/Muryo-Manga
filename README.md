@@ -1,43 +1,4 @@
-# Astro Starter Kit: Minimal
-
-```sh
-npm create astro@latest -- --template minimal
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<h1>Muryo Mangás</h1>
+<p>O Muryo Mangás é um projeto de uma loja virtual de mangás desenvolvido como trabalho final da disciplina de WEB 1. O objetivo é criar a interface completa de uma loja virtual quem tem como seu único produto mangás e manhwas, proporcionando uma experiência intuitiva tanto para clientes quanto para administradores da plataforma. O projeto é desenvolvido utilizando o framework Astro, com foco na construção do Front-End, sem a implementação de funcionalidades de back-end.<br>
+A aplicação contempla duas áreas principais: a área do cliente e a área administrativa. Na área do cliente, serão desenvolvidas interfaces para cadastro de usuários, pesquisa e filtragem de produtos, visualização detalhada dos mangás, gerenciamento do carrinho de compras, histórico de compras, comentários em produtos e um formulário para doação de mangás. Já a área administrativa contará com telas destinadas ao gerenciamento do catálogo da loja, permitindo a criação de contas de administradores, edição e exclusão de produtos.<br>
+</p>
