@@ -1,0 +1,48 @@
+---
+const mangas =[
+    "Naruto",
+    "One Piece",
+    "Attack on Titan",
+    "Death Note",
+    "Jujutsu Kaisen",
+    "Chainsaw Man",
+    "Bleach",
+    "Demon Slayer",
+    "Spy x Family",
+    "Tokyo Ghoul",
+    "Dragon Ball",
+    "Ao Haru Ride",
+    "Haikyu",
+    "Boku no Hero",
+];
+---
+
+<div class= "pesquisa-container" data-mangas={JSON.stringify(mangas)}>
+    <input id = "pesquisa-input" type = "text" placeholder = "Pesquisar mangás">
+    <button type = "button">Pesquisar</button>
+    <ul id = "sugestoes">
+
+    </ul>
+</div>
+<script>
+    const container = document.querySelector(".pesquisa-container");
+    const input = document.getElementById("pesquisa-input");
+    const suggestions = document.getElementById("sugestoes");
+    const mangas = JSON.parse(container.dataset.mangas);
+    input.addEventListener("input", () => {
+        const texto = input.value;
+        const pesquisa = texto.toLowerCase();
+        suggestions.innerHTML = "";
+        if (pesquisa === "") {
+            return;
+        }
+        const resultados = mangas.filter((manga) => {
+            return manga.toLowerCase().includes(pesquisa);
+        });
+        resultados.forEach((manga) => {
+            const item = document.createElement("li");
+            item.textContent = manga;
+            suggestions.appendChild(item);
+        });
+    });
+</script>
