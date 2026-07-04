@@ -1,0 +1,211 @@
+[
+    {
+        "id": "onepiece1",
+        "name": "One Piece",
+        "volume": 1,
+        "price": 34.90,
+        "image": "/images/onepiece1.jpg",
+        "description": "Primeiro volume da saga One Piece",
+        "category": "Shonen",
+        "stock": 7,
+        "comments": ["História incrível!!"]
+    },
+    {
+        "id": "onepiece2",
+        "name": "One Piece",
+        "volume": 2,
+        "price": 34.90,
+        "image": "/images/onepiece2.jpg",
+        "description": "Segundo volume da saga One Piece",
+        "category": "Shonen",
+        "stock": 7,
+        "comments": ["Ainda melhor que o primeiro!"]
+    },
+    {
+        "id": "naruto1",
+        "name": "Naruto",
+        "volume": 1,
+        "price": 43.90,
+        "image": "/images/naruto1.jpg",
+        "description": "Primeiro volume da saga Naruto",
+        "category": "Shonen",
+        "stock": 5,
+        "comments": ["O produto é de ótima qualidade igual ao anúncio", "A entrega foi feita antes do prazo, sendo assim chegando mais rápido que o esperado. Sem contar que veio sem nenhum defeito o volume, além do mais ele é lindíssimo!!!"]
+    },
+    {
+        "id": "naruto2",
+        "name": "Naruto",
+        "volume": 2,
+        "price": 34.50,
+        "image": "/images/naruto2.jpg",
+        "description": "Segundo volume da saga Naruto",
+        "category": "Shonen",
+        "stock": 5,
+        "comments": ["Produto de ótima qualidade bem embalado", "Melhor preço, excelente produto."]
+    },
+    {
+        "id": "berserk1",
+        "name": "Berserk",
+        "volume": 1,
+        "price": 26.94,
+        "image": "/images/berserk1.jpg",
+        "description": "Primeiro volume da saga Berserk",
+        "category": "Seinen",
+        "stock": 5,
+        "comments": ["Recomendo bastante, comprei de presente pro meu namorado e ele adorou", "produto exatamente igual como é descrito, chegou no prazo da entrega."]
+    },
+    {
+        "id": "berserk2",
+        "name": "Berserk",
+        "volume": 2,
+        "price": 33.68,
+        "image": "/images/berserk2.jpg",
+        "description": "Segundo volume da saga Berserk",
+        "category": "Seinen",
+        "stock": 5,
+        "comments": ["Produto excelente e de ótima qualidade, chegou rápido."]
+    },
+    {
+        "id": "tokyoghoul1",
+        "name": "Tokyo Ghoul",
+        "volume": 1,
+        "price": 81.93,
+        "image": "/images/tokyoghoul1.jpg",
+        "description": "Primeiro volume da saga Tokyo Ghoul",
+        "category": "Seinen",
+        "stock": 5,
+        "comments": ["Chegou em perfeito estado"]
+    },
+    {
+        "id": "tokyoghoul2",
+        "name": "Tokyo Ghoul",
+        "volume": 2,
+        "price": 32.20,
+        "image": "/images/tokyoghoul2.jpg",
+        "description": "Segundo volume da saga Tokyo Ghoul",
+        "category": "Seinen",
+        "stock": 5,
+        "comments": ["Veio bem embalado o produto está em ótima qualidade"]
+    },
+    {
+        "id": "haikyu1",
+        "name": "Haikyu",
+        "volume": 1,
+        "price": 40.47,
+        "image": "/images/haikyu1.jpg",
+        "description": "Primeiro volume da saga Haikyu",
+        "category": "Esporte",
+        "stock": 5,
+        "comments": ["primeiro mangá que comprei de haikyuu, muito bonito!!"]
+    },
+    {
+        "id": "haikyu2",
+        "name": "Haikyu",
+        "volume": 2,
+        "price": 40.47,
+        "image": "/images/haikyu2.jpg",
+        "description": "Segundo volume da saga Haikyu",
+        "category": "Esporte",
+        "stock": 5,
+        "comments": ["Veio bem embalado o produto está em ótima qualidade"]
+    },
+    {
+        "id": "knb1",
+        "name": "Kuroko no Basket",
+        "volume": 1,
+        "price": 63.00,
+        "image": "/images/knb1.jpg",
+        "description": "Primeiro volume da saga Kuroko no Basket",
+        "category": "Esporte",
+        "stock": 5,
+        "comments": ["muito bom"]
+    },
+    {
+        "id": "knb2",
+        "name": "Kuroko no Basket",
+        "volume": 2,
+        "price": 11.90,
+        "image": "/images/knb2.jpg",
+        "description": "Segundo volume da saga Kuroko no Basket",
+        "category": "Esporte",
+        "stock": 5,
+        "comments": ["muito bom"]
+    },
+    {
+        "id": "ahr1",
+        "name": "Ao Haru Hide",
+        "volume": 1,
+        "price": 66.68,
+        "image": "/images/ahr1.jpg",
+        "description": "Primeiro volume da saga Ao Haru Hide",
+        "category": "Shoujo",
+        "stock": 5,
+        "comments": ["Muito lindo, chegou em excelentes condições!!"]
+    },
+    {
+        "id": "ahr2",
+        "name": "Ao Haru Hide",
+        "volume": 2,
+        "price": 66.24,
+        "image": "/images/ahr2.jpg",
+        "description": "Segundo volume da saga Ao Haru Hide",
+        "category": "Shoujo",
+        "stock": 5,
+        "comments": ["Produto bom e chegou rápido"]
+    },
+    {
+        "id": "gintama1",
+        "name": "Gintama",
+        "volume": 1,
+        "price": 75.29,
+        "image": "/images/gintama1.jpg",
+        "description": "Primeiro volume da saga Gintama",
+        "category": "Comedia",
+        "stock": 5,
+        "comments": ["O produto veio em perfeito estado , bem embalado é antes do prazo combinado."]
+    },
+    {
+        "id": "gintama2",
+        "name": "Gintama",
+        "volume": 2,
+        "price": 83.68,
+        "image": "/images/gintama2.jpg",
+        "description": "Segundo volume da saga Gintama",
+        "category": "Comedia",
+        "stock": 5,
+        "comments": ["Muito lindo, chegou em excelentes condições!!"]
+    },
+    {
+        "id": "sololeveling1",
+        "name": "Solo Leveling",
+        "volume": 1,
+        "price": 58.40,
+        "image": "/images/sololeveling1.jpg",
+        "description": "Primeiro volume da saga Solo Leveling",
+        "category": "Manhwa",
+        "stock": 5,
+        "comments": ["O produto veio em perfeito estado , bem embalado é antes do prazo combinado."]
+    },
+    {
+        "id": "lom1",
+        "name": "Lord of Mysteries",
+        "volume": 1,
+        "price": 111.54,
+        "image": "/images/lom1.jpg",
+        "description": "Primeiro volume da saga Lord of Mysteries",
+        "category": "Manhwa",
+        "stock": 5,
+        "comments": ["Ótimo livro! Chegou rápido e a capa é linda, com nenhum defeito"]
+    },
+    {
+        "id": "tbate1",
+        "name": "The Beginning After the End",
+        "volume": 1,
+        "price": 26.59,
+        "image": "/images/tbate.jpg",
+        "description": "Primeiro volume da saga The Beginning After the End",
+        "category": "Manhwa",
+        "stock": 5,
+        "comments": ["Muito bom! Ótimo produto"]
+    }
+]
