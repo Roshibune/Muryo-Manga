@@ -1,0 +1,21 @@
+---
+import Navbar from "src/components/navbar.astro";
+import Footer from "src/components/footer.astro";
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title> Muryo Mangás </title>
+  </head>
+  <body>
+    <Navbar />
+    
+    <h1> Muryo Mangás </h1>
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>
