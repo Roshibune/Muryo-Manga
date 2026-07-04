@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<layout title="Sobre Nós">
+    <h2><strong>Quem somos:</strong></h2>
+        <p>A Muryo Mangás é uma loja virtual criada para oferecer aos fãs da cultura japonesa um ambiente prático, organizado e agradável para 
+        encontrar seus mangás favoritos. Nosso objetivo é reunir títulos de diferentes gêneros e editoras em uma plataforma intuitiva, 
+        proporcionando uma experiência de navegação simples e acessível para leitores iniciantes e colecionadores.<br>
+        Mais do que uma loja, buscamos incentivar o hábito da leitura e fortalecer a comunidade de apaixonados por mangás. Por isso, além da venda 
+        de produtos, promovemos um espaço onde os usuários podem compartilhar opiniões por meio de comentários e contribuir com a divulgação da 
+        leitura através da doação de mangás.<br>
+        Este projeto foi desenvolvido com foco na criação de uma interface moderna, responsiva e de fácil utilização, priorizando a organização das 
+        informações e a experiência do usuário. A Muryo Mangás representa a união entre tecnologia e entretenimento, oferecendo uma plataforma 
+        pensada para quem deseja explorar e acompanhar o universo dos mangás de forma prática e acolhedora.</p>
+    <h2><strong>Nossas missões e valores:</strong></h2>
+        <p>Na Muryo Mangás, nossa missão é aproximar os leitores do universo dos mangás por meio de uma plataforma moderna, intuitiva e acessível. 
+        Buscamos proporcionar uma experiência de navegação agradável, facilitando a descoberta de novos títulos e incentivando o hábito da leitura, 
+        sempre valorizando a cultura japonesa e a paixão pelos mangás.<br>
+        Para alcançar esse objetivo, seguimos valores que representam a essência da nossa loja:<br></p>
+        <ul>
+            <li><strong>Paixão pela leitura:</strong> Acreditamos que os mangás são uma forma de entretenimento, aprendizado e inspiração para 
+            pessoas de todas as idades.</li>
+            <li><strong>Qualidade e organização:</strong> Priorizamos uma plataforma bem estruturada, com informações claras e uma navegação 
+            simples para oferecer a melhor experiência aos usuários.</li>
+            <li><strong>Compromisso com a comunidade:</strong> Incentivamos a interação entre os leitores por meio de comentários, recomendações e 
+            do compartilhamento de experiências.</li>
+            <li><strong>Acessibilidade:</strong> Buscamos tornar o acesso aos mangás mais fácil e intuitivo, atendendo tanto novos leitores quanto 
+            colecionadores.</li>
+            <li><strong>Solidariedade:</strong> Valorizamos o compartilhamento de histórias e incentivamos a doação de mangás, contribuindo para 
+            que mais pessoas tenham acesso à leitura.</li>
+        </ul>
+    <h2><strong>Projeto de doação:</strong></h2>
+        <p>Na Muryo Mangás, acreditamos que toda história merece continuar sendo lida. Por isso, criamos um espaço dedicado à doação de mangás, 
+        incentivando nossos clientes a dar um novo destino às coleções que já não utilizam mais.<br>
+        Por meio de um formulário simples, os usuários podem informar os mangás que desejam doar, contribuindo para que essas obras cheguem a novos 
+        leitores e continuem despertando o interesse pela leitura e pela cultura japonesa. Além de promover a reutilização de livros em bom estado, 
+        essa iniciativa fortalece o espírito de colaboração entre a comunidade de fãs de mangás.<br>
+        Cada doação representa uma oportunidade de compartilhar conhecimento, entretenimento e novas experiências, tornando a leitura mais 
+        acessível para um número cada vez maior de pessoas.<br></p>
+
+        <form class = "form-doacao">
+            <label for = "nome">Nome Completo</label>
+            <input type = "text" id = "nome" placeholder = "Digite seu nome"/>
+
+            <label for = "email">E-mail</label>
+            <input type = "email" id = "email" placeholder = "Digite seu e-mail"/>
+
+            <label for = "telefone">Telefone</label>
+            <input type = "tel" id = "telefone" placeholder = "(00) 00000-0000"/>
+
+            <label for = "manga">Mangá que deseja doar</label>
+            <input type = "text" id = "manga" placeholder = "Ex.: Naruto Shippuden"/>
+
+            <label for = "quantidade">Quantidade de Volumes</label>
+            <input type = "number" id = "quantidade" min = "1"/>
+
+            <label for="volumes">Volume(s)</label>
+            <input type = "text" id = "volumes" placeholder = "Ex.: Vol. 1, 2 e 3 ou Vol. 5"/>
+
+            <label for = "estado">Estado de Conservação</label>
+            <select id = "estado">
+                <option>Novo</option>
+                <option>Ótimo</option>
+                <option>Bom</option>
+                <option>Regular</option>
+            </select>
+            
+            <label for = "observacoes">Observações</label>
+            <textarea
+                id = "observacoes"
+                rows = "5"
+                placeholder = "Escreva alguma informação sobre a doação..."
+            ></textarea>
+
+            <button type = "submit">Enviar Doação</button>
+        </form>
+</layout>
