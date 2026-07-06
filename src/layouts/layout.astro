@@ -1,150 +1,33 @@
 ---
-import Layout from "../layouts/layout.astro";
-import produtos from "../data/produtos.json";
+const { title } = Astro.props;
+import Navbar from "../components/navbar.astro";
+import Footer from "../components/footer.astro";
 ---
 
-<Layout title="Carrinho">
-    <div class="carrinho">
-        <h2><strong>Meu Carrinho</strong></h2>
-        <section id="lista-carrinho" data-produtos={JSON.stringify(produtos)}>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header>
+      <Navbar />
+    </header>
 
-        </section>
+    <main>
+      <slot />
+    </main>
 
-        <section class="resumo">
-            <h3>Resumo da Compra</h3>
-            <div class="linha-resumo">
-                <span>Subtotal</span>
-                <span id="subtotal">R$ 0,00</span>
-            </div>
-
-            <div class="linha-resumo">
-                <span>Frete</span>
-                <span>Grátis</span>
-            </div>
-
-            <div class="linha-resumo total">
-                <span>Total</span>
-                <span id="total">R$ 0,00</span>
-            </div>
-
-            <button class="btn-finalizar">Finalizar Compra </button>
-        </section>
-
-        <section id="sugestoes">
-            <h3>Você também pode gostar</h3>
-            <div class="lista-sugestoes">
-            </div>
-        </section>
-    </div>
+    <Footer />
 
     <script>
-      const lista = document.getElementById("lista-carrinho");
-      const sugestoes = document.querySelector(".lista-sugestoes");
-      const produtos = JSON.parse(lista.dataset.produtos);
-      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      let subtotal = 0;
-      function carregarCarrinho() 
-      {
-          lista.innerHTML = "";
-          subtotal = 0;
-          if (carrinho.length === 0) 
-          {
-              lista.innerHTML = 
-              `
-                  <div class="carrinho-vazio">
-                      <h3>Seu carrinho está vazio!</h3>
-                      <p>Adicione alguns mangás para continuar suas compras.</p>
-                      <a href="/" class="btn-voltar">Continuar Comprando</a>
-                  </div>
-              `;
-              atualizarResumo();
-              carregarSugestoes();
-              return;
-          }
+      window.addEventListener("DOMContentLoaded", () => {
+        const cliente = localStorage.getItem("cliente");
 
-          carrinho.forEach((item) => 
-          {
-              const produto = produtos.find((p) => p.id === item.id);
-              if (!produto) return;
-              const totalProduto = produto.price * item.quantidade;
-              subtotal += totalProduto;
-              const card = document.createElement("div");
-              card.classList.add("card-carrinho");
-              card.innerHTML = 
-              `
-                  <img src="${produto.image}" alt="${produto.name}">
-                  <div class="info-produto">
-                      <h4>${produto.name}</h4>
-                      <p>Volume ${produto.volume}</p>
-                      <p>Quantidade: ${item.quantidade}</p>
-                      <p>Preço unitário: R$ ${produto.price.toFixed(2)}</p>
-                      <p><strong>Total: R$ ${totalProduto.toFixed(2)}</strong></p>
-                      <button class="btn-remover" data-id="${produto.id}">Remover Mangá </button>
-                  </div>
-              `;
-              lista.appendChild(card);
-          });
-          atualizarResumo();
-          adicionarEventosRemover();
-          carregarSugestoes();
-
-      }
-
-      function atualizarResumo() 
-      {
-          document.getElementById("subtotal").textContent = `R$ ${subtotal.toFixed(2)}`;
-          document.getElementById("total").textContent = `R$ ${subtotal.toFixed(2)}`;
-      }
-
-      function adicionarEventosRemover() 
-      {
-          document
-              .querySelectorAll(".btn-remover")
-              .forEach((botao) => 
-              {
-                  botao.addEventListener("click", () => 
-                  {
-                      const id = botao.dataset.id;
-                      carrinho = carrinho.filter((item) => 
-                      {
-                          return item.id !== id;
-                      });
-
-                      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-                      carregarCarrinho();
-                  });
-              });
-      }
-
-      function carregarSugestoes() 
-      {
-          sugestoes.innerHTML = "";
-          produtos.filter((produto) => 
-          {
-                  return !carrinho.some((item) => 
-                  {
-                      return item.id === produto.id;
-                  });
-              })
-              .slice(0, 4)
-              .forEach((produto) => 
-              {
-                  const card = document.createElement("div");
-                  card.classList.add("card-sugestao");
-                  card.innerHTML = 
-                  `
-                      <a href="/produto/${produto.id}">
-                          <img src="${produto.image}" alt="${produto.name}">
-                      </a>
-
-                      <h4>${produto.name}</h4>
-                      <p>Volume ${produto.volume}</p>
-                      <p>R$ ${produto.price.toFixed(2)}</p>
-                  `;
-                  sugestoes.appendChild(card);
-              });
-      }
-      carregarCarrinho();
+        if (!cliente && !admin && window.location.pathname !== "/login") {
+            window.location.href = "/login";
+        }
+      });
     </script>
-
-</Layout>
+  </body>
+</html>
