@@ -3,7 +3,7 @@ import Layout from "../layouts/layout.astro";
 import produtos from "../data/produtos.json";
 ---
 
-<Layout title="Página Inicial">
+<Layout title="Início">
   <h2>Catálogo de Mangás</h2>
   <div class="produtos-grid">
     {produtos.map((produto) => (
@@ -14,4 +14,13 @@ import produtos from "../data/produtos.json";
       </a>
     ))}
   </div>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const cliente = localStorage.getItem("cliente");
+      if (!cliente) {
+        window.location.href = "/login";
+      }
+    });
+  </script>
 </Layout>

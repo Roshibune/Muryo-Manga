@@ -8,17 +8,26 @@ import Footer from "../components/footer.astro";
   <head>
     <meta charset="UTF-8" />
     <title>{title}</title>
-    <link rel="logo" href="../imagem/logo.png" sizes="32x32" type="image/png">
   </head>
-
   <body>
-    <Navbar />
+    <header>
+      <Navbar />
+    </header>
 
-    <h1> Muryo Mangás </h1>
     <main>
       <slot />
     </main>
 
     <Footer />
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        const cliente = localStorage.getItem("cliente");
+
+        if (!cliente && window.location.pathname !== "/login") {
+          window.location.href = "/login";
+        }
+      });
+    </script>
   </body>
 </html>

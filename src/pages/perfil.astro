@@ -1,6 +1,37 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/layout.astro";
 ---
-<layout title="Perfil">
 
-</layout>
+<Layout title="Perfil do Cliente">
+  <section class="perfil">
+    <img id="foto-perfil" alt="Foto de perfil" />
+    <h2 id="nome-usuario"></h2>
+    <p id="email"></p>
+
+    <h3>Histórico de Compras</h3>
+    <ul id="historico-compras"></ul>
+
+    <button id="logout">Logout</button>
+  </section>
+
+  <script>
+    const cliente = JSON.parse(localStorage.getItem("cliente"));
+    if (cliente) {
+      document.getElementById("foto-perfil").src = cliente.foto;
+      document.getElementById("nome-usuario").textContent = cliente.username;
+      document.getElementById("email").textContent = cliente.email;
+
+      const lista = document.getElementById("historico-compras");
+      cliente.compras.forEach(produto => {
+        const li = document.createElement("li");
+        li.textContent = produto.name + " Vol. " + produto.volume;
+        lista.appendChild(li);
+      });
+    }
+
+    document.getElementById("logout").addEventListener("click", () => {
+      localStorage.removeItem("cliente");
+      window.location.href = "/login";
+    });
+  </script>
+</Layout>
