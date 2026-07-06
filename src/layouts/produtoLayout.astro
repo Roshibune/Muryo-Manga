@@ -17,15 +17,16 @@ const { produto } = Astro.props;
 
     <div class="comentarios">
       <h3>Comentários</h3>
-      {produto.comments && produto.comments.length > 0 ? (
-        <ul>
-          {produto.comments.map((comentario) => (
-            <li>{comentario}</li>
-          ))}
-        </ul>
-      ) : (
-        <p>Este produto ainda não possui comentários.</p>
-      )}
+      <ul>
+        {produto.comments && produto.comments.map((comentario) => (
+          <li>{comentario}</li>
+        ))}
+      </ul>
+
+      <form>
+        <textarea placeholder="Escreva seu comentário..."></textarea>
+        <button type="submit">Adicionar Comentário</button>
+      </form>
     </div>
   </section>
 </Layout>
