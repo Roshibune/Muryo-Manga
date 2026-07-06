@@ -10,6 +10,7 @@ import produtos from "../data/produtos.json";
             id="lista-carrinho"
             data-produtos={JSON.stringify(produtos)}>
         </div>
+
         <section class="resumo">
             <h3>Resumo da Compra</h3>
             <div class="linha-resumo">
@@ -26,79 +27,96 @@ import produtos from "../data/produtos.json";
                 <span>Total</span>
                 <span id="total">R$ 0,00</span>
             </div>
+            <button class="btn-finalizar">Finalizar Compra</button>
+        </section>
 
-            <button class="btn-finalizar">
-                Finalizar Compra
-            </button>
+        <section id="sugestoes">
+
         </section>
     </main>
 
-    <script>
+     <script>
         const lista = document.getElementById("lista-carrinho");
+        const sugestoes = document.getElementById("sugestoes");
         const produtos = JSON.parse(lista.dataset.produtos);
-        const carrinho =
-            JSON.parse(localStorage.getItem("carrinho")) || [];
-        // ============================
-        // Carrinho vazio
-        // ============================
+        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        let subtotal = 0;
+        let sugestoesHTML = "";
+        const lista = document.getElementById("lista-carrinho");
+        const sugestoes = document.getElementById("sugestoes");
+        const produtos = JSON.parse(lista.dataset.produtos);
+        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        let subtotal = 0;
         if (carrinho.length === 0) 
         {
-            let sugestoesHTML = "";
-            produtos.slice(0, 4).forEach((produto) => 
-            {
-                sugestoesHTML += 
-                `
-                    <div class="card-sugestao">
-                        <img src="${produto.image}" alt="${produto.name}">
-                        <h4>${produto.name}</h4>
-                        <p>Volume ${produto.volume}</p>
-                        <p>R$ ${produto.price.toFixed(2)}</p>
-                        <a href="/" class="btn-ver">Ver Produto</a>
-                    </div>
-                `;
-            });
-
             lista.innerHTML = 
             `
                 <div class="carrinho-vazio">
                     <h4> Seu carrinho está vazio!</h4>
-                    <p>Que tal explorar nosso catálogo e encontrar
-                        seu próximo mangá favorito?</p>
+                    <p>Que tal explorar nosso catálogo e encontrar seu próximo mangá favorito?</p>
                     <a href="/" class="btn-voltar">Continuar Comprando</a>
                 </div>
-
-                <section class="sugestoes">
-                    <h3>Você também pode gostar</h3>
-                    <div class="lista-sugestoes">
-                        ${sugestoesHTML}
-                    </div>
-                </section>
             `;
-            return;
         }
-        // ============================
-        // Carrinho com produtos
-        // ============================
-        carrinho.forEach((item) => 
+
+        else 
         {
-            const produto = produtos.find((produto) => 
+            carrinho.forEach((item) => 
             {
-                return produto.id === item.id;
+                const produto = produtos.find((produto) => {
+                    return produto.id === item.id;
+                });
+                if (!produto) return;
+                subtotal += produto.price * item.quantidade;
+                const card = document.createElement("div");
+                card.classList.add("card-carrinho");
+                card.innerHTML = 
+                `
+                    <img src="${produto.image}" alt="${produto.name}">
+                    <div class="info-produto">
+                        <h4>${produto.name}</h4>
+                        <p>Volume ${produto.volume}</p>
+                        <p>Quantidade: ${item.quantidade}</p>
+                        <p>Preço: R$ ${produto.price.toFixed(2)}</p>
+                    </div>
+                `;
+                lista.appendChild(card);
             });
-            if (!produto) return;
-            const card = document.createElement("div");
-            card.classList.add("card-carrinho");
-            card.innerHTML = 
-            `
-                <img src="${produto.image}"alt="${produto.name}">
-                <div class="info-produto">
-                    <h4>${produto.name}</h4>
-                    <p>Volume ${produto.volume}</p>
-                    <p>Quantidade: ${item.quantidade}</p>
-                    <p>Preço: R$ ${produto.price.toFixed(2)}</p>
-                </div>
-            `;
-            lista.appendChild(card);
-        });
+        }
+
+        document.getElementById("subtotal").textContent =  `R$ ${subtotal.toFixed(2)}`;
+        document.getElementById("total").textContent = `R$ ${subtotal.toFixed(2)}`;
+        let sugestoesHTML = "";
+
+        produtos
+            .filter((produto) => 
+            {
+                return !carrinho.some((item) => 
+                {
+                    return item.id === produto.id;
+                });
+            })
+            .slice(0, 4)
+            .forEach((produto) => 
+            {
+                sugestoesHTML += 
+                `
+                    <div class="card-sugestao">
+                        <a href="/produto/${produto.id}">
+                            <img src="${produto.image}" alt="${produto.name}">
+                        </a>
+                        <h4>${produto.name}</h4>
+                        <p>Volume ${produto.volume}</p>
+                        <p>R$ ${produto.price.toFixed(2)}</p>
+                    </div>
+                `;
+            });
+        sugestoes.innerHTML = 
+        `
+            <h3>Você também pode gostar</h3>
+            <div class="lista-sugestoes">
+                ${sugestoesHTML}
+            </div>
+        `;
     </script>
 </Layout>
