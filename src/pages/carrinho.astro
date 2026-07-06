@@ -27,7 +27,7 @@ import produtos from "../data/produtos.json";
                 <span id="total">R$ 0,00</span>
             </div>
 
-            <button class="btn-finalizar">Finalizar Compra </button>
+            <button class="btn-finalizar" id="btn-finalizar">Finalizar Compra</button>
         </section>
 
         <section id="sugestoes">
@@ -144,7 +144,16 @@ import produtos from "../data/produtos.json";
                   sugestoes.appendChild(card);
               });
       }
+      const botaoFinalizar = document.getElementById("btn-finalizar");
+      botaoFinalizar.addEventListener("click", () =>
+      {
+        if (carrinho.length === 0)
+        {
+            alert("Seu carrinho está vazio! Adicione pelo menos um mangá antes de finalizar a compra.");
+            return;
+        }
+        alert("Compra finalizada com sucesso!");
+      });
       carregarCarrinho();
     </script>
-
 </Layout>
