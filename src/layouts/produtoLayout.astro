@@ -8,47 +8,65 @@ const { produto } = Astro.props;
     <img src={produto.image} alt={produto.name} />
     <h2>{produto.name} Vol. {produto.volume}</h2>
     <p>Preço: R$ {produto.price}</p>
-    <button id="btn-carrinho" data-id={produto.id}>Adicionar ao Carrinho</button>
 
-    <div class="descricao">
-      <h3>Descrição</h3>
-      <p>{produto.description}</p>
-    </div>
+    <!-- Mostra estoque -->
+    <p>Estoque disponível: {produto.stock}</p>
 
-    <div class="comentarios">
-      <h3>Comentários</h3>
-      <ul>
-        {produto.comments && produto.comments.map((comentario) => (
-          <li>{comentario}</li>
-        ))}
-      </ul>
+    <!-- Campo para escolher quantidade -->
+    <label for="quantidade">Quantidade:</label>
+    <input type="number" id="quantidade" min="1" max={produto.stock} value="1" />
 
-      <form>
-        <textarea placeholder="Escreva seu comentário..."></textarea>
-        <button type="submit">Adicionar Comentário</button>
-      </form>
-    </div>
+    <!-- Botão com todos os dados do produto -->
+    <button 
+      id="btn-carrinho" 
+      data-id={produto.id} 
+      data-stock={produto.stock}
+      data-nome={produto.name}
+      data-preco={produto.price}
+      data-imagem={produto.image}
+      data-volume={produto.volume}
+      disabled={produto.stock === 0}>
+      {produto.stock === 0 ? "Produto esgotado" : "Adicionar ao Carrinho"}
+    </button>
   </section>
 
   <script>
     const botao = document.getElementById("btn-carrinho");
-    botao.addEventListener("click", () => {
-      const idProduto = botao.dataset.id;
-      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-      const itemExistente = carrinho.find((item) => 
-      {
-        return item.id === idProduto;
+    if (botao && !botao.disabled) {
+      botao.addEventListener("click", () => {
+        const idProduto = botao.dataset.id;
+        const estoque = parseInt(botao.dataset.stock);
+        const qtd = parseInt(document.getElementById("quantidade").value);
+
+        if (qtd > estoque) {
+          alert("Quantidade maior que o estoque disponível!");
+          return;
+        }
+
+        let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        const itemExistente = carrinho.find((item) => item.id == idProduto);
+
+        if (itemExistente) {
+          const novaQtd = itemExistente.quantidade + qtd;
+          if (novaQtd > estoque) {
+            alert("Não é possível adicionar mais do que o estoque disponível!");
+            return;
+          }
+          itemExistente.quantidade = novaQtd;
+        } else {
+          carrinho.push({
+            id: idProduto,
+            nome: botao.dataset.nome,
+            preco: parseFloat(botao.dataset.preco),
+            imagem: botao.dataset.imagem,
+            volume: botao.dataset.volume,
+            quantidade: qtd
+          });
+        }
+
+        localStorage.setItem("carrinho", JSON.stringify(carrinho));
+        alert("Produto adicionado ao carrinho!");
       });
-      if (itemExistente) 
-      {
-        itemExistente.quantidade++;
-      } 
-      else 
-      {
-        carrinho.push({id: idProduto, quantidade: 1});
-      }
-      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-      alert("Produto adicionado ao carrinho!");
-    });
+    }
   </script>
 </Layout>
