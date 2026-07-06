@@ -1,0 +1,13 @@
+---
+import produtos from "../../data/produtos.json";
+---
+
+<h3>Lista de Produtos (Excluir)</h3>
+<ul>
+  {produtos.map(p => (
+    <li>
+      {p.id} - {p.nome} ({p.volume}) - R${p.price}
+      <button disabled>Excluir</button>
+    </li>
+  ))}
+</ul>

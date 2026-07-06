@@ -1,0 +1,59 @@
+---
+import Layout from "../layouts/layout.astro";
+import InserirProduto from "../components/admin/inserirProduto.astro";
+import AlterarProduto from "../components/admin/alterarProduto.astro";
+import ExcluirProduto from "../components/admin/excluirProduto.astro";
+import GerenciarAdmins from "../components/admin/gerenciarAdmins.astro";
+---
+
+<Layout title="Administração">
+  <section class="admin-panel">
+    <h2>Painel Administrativo</h2>
+
+    <div>
+      <button class="tab-btn" data-aba="inserir">Inserir Produto</button>
+      <button class="tab-btn" data-aba="alterar">Alterar Produto</button>
+      <button class="tab-btn" data-aba="excluir">Excluir Produto</button>
+      <button class="tab-btn" data-aba="admins" id="btn-admins">Gerenciar Admins</button>
+    </div>
+
+    <div id="aba-inserir" class="aba" style="display:none;">
+      <InserirProduto />
+    </div>
+    <div id="aba-alterar" class="aba" style="display:none;">
+      <AlterarProduto />
+    </div>
+    <div id="aba-excluir" class="aba" style="display:none;">
+      <ExcluirProduto />
+    </div>
+    <div id="aba-admins" class="aba" style="display:none;">
+      <GerenciarAdmins />
+    </div>
+  </section>
+
+  <script>
+    const admin = JSON.parse(localStorage.getItem("admin"));
+    if (!admin) {
+      window.location.href = "/login";
+    }
+
+    if (!admin.principal) {
+      const btnAdmins = document.getElementById("btn-admins");
+      btnAdmins.disabled = true;
+      btnAdmins.classList.add("disabled-btn");
+    }
+
+    function abrirAba(nome) {
+      document.querySelectorAll(".aba").forEach(div => div.style.display = "none");
+      document.getElementById("aba-" + nome).style.display = "block";
+    }
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (btn.disabled) return; // não abre aba se botão estiver desabilitado
+        const nome = btn.getAttribute("data-aba");
+        abrirAba(nome);
+      });
+    });
+  </script>
+</Layout>

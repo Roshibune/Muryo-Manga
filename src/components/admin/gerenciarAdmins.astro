@@ -1,0 +1,48 @@
+<form id="form-admin">
+  <input type="text" id="admin-usuario" placeholder="Usuário" required />
+  <input type="password" id="admin-senha" placeholder="Senha" required />
+  <button type="submit">Criar</button>
+</form>
+
+<h3>Lista de Administradores</h3>
+<ul id="lista-admins"></ul>
+
+<script>
+  function carregarAdmins() {
+    const admins = JSON.parse(localStorage.getItem("admins")) || [];
+    const lista = document.getElementById("lista-admins");
+    lista.innerHTML = "";
+
+    admins.forEach((a, i) => {
+      const li = document.createElement("li");
+      li.textContent = `${a.usuario}`;
+
+      const btnExcluir = document.createElement("button");
+      btnExcluir.textContent = "Excluir";
+      btnExcluir.addEventListener("click", () => {
+        admins.splice(i, 1);
+        localStorage.setItem("admins", JSON.stringify(admins));
+        alert("Administrador removido!");
+        carregarAdmins();
+      });
+
+      li.appendChild(btnExcluir);
+      lista.appendChild(li);
+    });
+  }
+
+  document.getElementById("form-admin").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const usuario = document.getElementById("admin-usuario").value;
+    const senha = document.getElementById("admin-senha").value;
+
+    const admins = JSON.parse(localStorage.getItem("admins")) || [];
+    admins.push({ usuario, senha });
+    localStorage.setItem("admins", JSON.stringify(admins));
+    alert("Novo administrador criado!");
+    e.target.reset();
+    carregarAdmins();
+  });
+
+  document.addEventListener("DOMContentLoaded", carregarAdmins);
+</script>

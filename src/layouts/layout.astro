@@ -24,8 +24,8 @@ import Footer from "../components/footer.astro";
       window.addEventListener("DOMContentLoaded", () => {
         const cliente = localStorage.getItem("cliente");
 
-        if (!cliente && window.location.pathname !== "/login") {
-          window.location.href = "/login";
+        if (!cliente && !admin && window.location.pathname !== "/login") {
+            window.location.href = "/login";
         }
       });
     </script>

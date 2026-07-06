@@ -1,0 +1,17 @@
+---
+import produtos from "../../data/produtos.json";
+---
+
+<h3>Lista de Produtos (Alterar)</h3>
+<ul>
+  {produtos.map(p => (
+    <li>
+      <strong>{p.id} - {p.nome}</strong> ({p.volume})  
+      <br />Preço: R${p.price}  
+      <br />Categoria: {p.category}  
+      <br />Estoque: {p.stock}  
+      <br />Descrição: {p.description}
+      <br /><button disabled>Alterar</button>
+    </li>
+  ))}
+</ul>

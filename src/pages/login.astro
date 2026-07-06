@@ -19,6 +19,18 @@ import Layout from "../layouts/layout.astro";
     form.addEventListener("submit", (e) => {
       e.preventDefault();
       const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+
+      const admins = JSON.parse(localStorage.getItem("admins")) || [];
+      const adminEncontrado = admins.find(a => a.usuario === username && a.senha === password);
+
+      if (adminEncontrado || (username === "admin" && password === "123")) {
+        const isPrincipal = (username === "admin" && password === "123");
+        localStorage.setItem("admin", JSON.stringify({ usuario: username, principal: isPrincipal }));
+        alert("Login como administrador!");
+        window.location.href = "/admin";
+        return;
+      }
 
       localStorage.setItem("cliente", JSON.stringify({
         username,
@@ -27,6 +39,7 @@ import Layout from "../layouts/layout.astro";
         compras: []
       }));
 
+      alert("Login como cliente!");
       window.location.href = "/";
     });
   </script>

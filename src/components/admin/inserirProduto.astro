@@ -1,0 +1,34 @@
+<form id="form-inserir">
+  <input type="text" id="id" placeholder="ID" required />
+  <input type="text" id="nome" placeholder="Nome" required />
+  <input type="text" id="volume" placeholder="Volume" required />
+  <input type="number" id="price" placeholder="Preço" step="0.01" required />
+  <input type="text" id="image" placeholder="URL da Imagem" required />
+  <textarea id="description" placeholder="Descrição"></textarea>
+  <input type="text" id="category" placeholder="Categoria" required />
+  <input type="number" id="stock" placeholder="Estoque" required />
+  <button type="submit">Adicionar Produto</button>
+</form>
+
+<script>
+  document.getElementById("form-inserir").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+    const novoProduto = {
+      id: document.getElementById("id").value,
+      nome: document.getElementById("nome").value,
+      volume: document.getElementById("volume").value,
+      price: parseFloat(document.getElementById("price").value),
+      image: document.getElementById("image").value,
+      description: document.getElementById("description").value,
+      category: document.getElementById("category").value,
+      stock: parseInt(document.getElementById("stock").value)
+    };
+
+    produtos.push(novoProduto);
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+    alert("Produto inserido!");
+    e.target.reset();
+  });
+</script>
