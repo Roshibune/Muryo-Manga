@@ -1,23 +1,11 @@
 ---
-const mangas =[
-    "Naruto",
-    "One Piece",
-    "Attack on Titan",
-    "Death Note",
-    "Jujutsu Kaisen",
-    "Chainsaw Man",
-    "Bleach",
-    "Demon Slayer",
-    "Spy x Family",
-    "Tokyo Ghoul",
-    "Dragon Ball",
-    "Ao Haru Ride",
-    "Haikyu",
-    "Boku no Hero",
-];
+import produtos from "../data/produtos.json";
+
+// cria uma lista apenas com os nomes
+const mangas = [...new Set(produtos.map(produto => produto.name))];
 ---
 
-<div class= "pesquisa-container" data-mangas={JSON.stringify(mangas)}>
+<div class="pesquisa-container" data-mangas={JSON.stringify(mangas)}>
     <input id = "pesquisa-input" type = "text" placeholder = "Pesquisar mangás">
     <button type = "button">Pesquisar</button>
     <ul id = "sugestoes">
