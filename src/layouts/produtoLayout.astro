@@ -8,7 +8,7 @@ const { produto } = Astro.props;
     <img src={produto.image} alt={produto.name} />
     <h2>{produto.name} Vol. {produto.volume}</h2>
     <p>Preço: R$ {produto.price}</p>
-    <button>Adicionar ao Carrinho</button>
+    <button id="btn-carrinho" data-id={produto.id}>Adicionar ao Carrinho</button>
 
     <div class="descricao">
       <h3>Descrição</h3>
@@ -29,4 +29,26 @@ const { produto } = Astro.props;
       </form>
     </div>
   </section>
+
+  <script>
+    const botao = document.getElementById("btn-carrinho");
+    botao.addEventListener("click", () => {
+      const idProduto = botao.dataset.id;
+      let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+      const itemExistente = carrinho.find((item) => 
+      {
+        return item.id === idProduto;
+      });
+      if (itemExistente) 
+      {
+        itemExistente.quantidade++;
+      } 
+      else 
+      {
+        carrinho.push({id: idProduto, quantidade: 1});
+      }
+      localStorage.setItem("carrinho", JSON.stringify(carrinho));
+      alert("Produto adicionado ao carrinho!");
+    });
+  </script>
 </Layout>
