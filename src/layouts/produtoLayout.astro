@@ -1,0 +1,32 @@
+---
+import Layout from "./layout.astro";
+const { produto } = Astro.props;
+---
+
+<Layout title={produto.name}>
+  <section class="produto-detalhe">
+    <img src={produto.image} alt={produto.name} />
+    <h2>{produto.name} Vol. {produto.volume}</h2>
+    <p>Preço: R$ {produto.price}</p>
+    <button>Adicionar ao Carrinho</button>
+
+    <div class="descricao">
+      <h3>Descrição</h3>
+      <p>{produto.description}</p>
+    </div>
+
+    <div class="comentarios">
+      <h3>Comentários</h3>
+      <ul>
+        {produto.comments && produto.comments.map((comentario) => (
+          <li>{comentario}</li>
+        ))}
+      </ul>
+
+      <form>
+        <textarea placeholder="Escreva seu comentário..."></textarea>
+        <button type="submit">Adicionar Comentário</button>
+      </form>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,16 @@
+---
+import ProdutoLayout from "../../layouts/produtoLayout.astro";
+import produtos from "../../data/produtos.json";
+
+// Essa função informa ao Astro quais rotas dinâmicas gerar
+export async function getStaticPaths() {
+  return produtos.map((produto) => ({
+    params: { id: produto.id.toString() },
+    props: { produto },
+  }));
+}
+
+const { produto } = Astro.props;
+---
+
+<ProdutoLayout produto={produto} />
