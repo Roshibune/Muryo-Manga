@@ -42,11 +42,6 @@ import produtos from "../data/produtos.json";
         const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
         let subtotal = 0;
         let sugestoesHTML = "";
-        const lista = document.getElementById("lista-carrinho");
-        const sugestoes = document.getElementById("sugestoes");
-        const produtos = JSON.parse(lista.dataset.produtos);
-        const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-        let subtotal = 0;
         if (carrinho.length === 0) 
         {
             lista.innerHTML = 
