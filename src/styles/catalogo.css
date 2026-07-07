@@ -1,33 +1,28 @@
-/* catalogo.css */
-
-/* Seção do catálogo */
 .catalogo-section {
-  max-width: 1200px;   /* mesma largura do grid */
-  margin: 0 auto;      /* centraliza no meio da tela */
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
 
 /* Título do catálogo */
 .catalogo-section h2 {
-  text-align: center;  /* centralizado acima dos cards */
+  text-align: center;
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 24px;
   color: #fff;
-  border-bottom: 2px solid #e63946; /* linha decorativa */
+  border-bottom: 2px solid #e63946;
   padding-bottom: 8px;
 }
 
-/* Grid dos produtos */
 .produtos-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* força 5 colunas */
+  grid-template-columns: repeat(5, 1fr);
   gap: 24px;
   max-width: 1200px;
   margin: 0 auto;
 }
 
-/* Card individual */
 .card {
   background-color: #111;
   border-radius: 8px;
@@ -42,14 +37,12 @@
   box-shadow: 0 6px 16px rgba(230, 57, 70, 0.6);
 }
 
-/* Imagem do produto */
 .card img {
   width: 100%;
   height: 300px;
   object-fit: cover;
 }
 
-/* Conteúdo do card */
 .card h3 {
   font-size: 1.2rem;
   color: #fff;
@@ -63,7 +56,6 @@
   margin: 0 12px 12px;
 }
 
-/* Responsividade */
 @media (max-width: 1200px) {
   .produtos-grid {
     grid-template-columns: repeat(3, 1fr);
