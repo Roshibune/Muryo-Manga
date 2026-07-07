@@ -1,0 +1,102 @@
+.sobre-nos {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.sobre-nos h2 {
+    margin: 35px 0 18px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e63946;
+    color: #fff;
+}
+
+.sobre-nos p,
+.sobre-nos li {
+    color: #ddd;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.sobre-nos ul {
+    margin: 15px 0 25px 30px;
+}
+
+.sobre-nos li {
+    margin-bottom: 10px;
+}
+.form-doacao {
+    width: 100%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 22px;
+
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-doacao label {
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.95rem;
+}
+
+.form-doacao input,
+.form-doacao select,
+.form-doacao textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #fff;
+    font-size: 0.95rem;
+}
+
+.form-doacao input:focus,
+.form-doacao select:focus,
+.form-doacao textarea:focus {
+    outline: none;
+    border-color: #e63946;
+}
+
+.form-doacao textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-doacao button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+
+    .sobre-nos {
+        padding: 15px;
+    }
+
+    .sobre-nos h2 {
+        font-size: 1.5rem;
+    }
+
+    .sobre-nos p,
+    .sobre-nos li {
+        font-size: 1rem;
+    }
+
+    .form-doacao {
+        padding: 20px;
+    }
+
+}
