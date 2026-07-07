@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/layout.astro";
 import produtos from "../data/produtos.json";
+import "../styles/carrinho.css";
 ---
 
 <Layout title="Carrinho">
@@ -96,25 +97,27 @@ import produtos from "../data/produtos.json";
           document.getElementById("total").textContent = `R$ ${subtotal.toFixed(2)}`;
       }
 
-      function adicionarEventosRemover() 
-      {
-          document
-              .querySelectorAll(".btn-remover")
-              .forEach((botao) => 
-              {
-                  botao.addEventListener("click", () => 
-                  {
-                      const id = botao.dataset.id;
-                      carrinho = carrinho.filter((item) => 
-                      {
-                          return item.id !== id;
-                      });
-
-                      localStorage.setItem("carrinho", JSON.stringify(carrinho));
-                      carregarCarrinho();
-                  });
-              });
-      }
+    function adicionarEventosRemover() 
+    {
+        document.querySelectorAll(".btn-remover").forEach((botao) => 
+        {
+            botao.addEventListener("click", () => 
+            {
+                const confirmar = confirm("Tem certeza que deseja remover este mangá do carrinho?");
+                if (!confirmar)
+                {
+                    return;
+                }
+                const id = botao.dataset.id;
+                carrinho = carrinho.filter((item) => 
+                {
+                    return item.id !== id;
+                });
+                localStorage.setItem("carrinho", JSON.stringify(carrinho));
+                carregarCarrinho();
+            });
+        });
+    }
 
       function carregarSugestoes() 
       {

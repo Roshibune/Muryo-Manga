@@ -1,0 +1,152 @@
+.carrinho{
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.carrinho h2{
+    text-align:center;
+    margin-bottom:30px;
+    border-bottom:2px solid #e63946;
+    padding-bottom:10px;
+}
+#lista-carrinho{
+    background:#111;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(230,57,70,.35);
+    margin-bottom:30px;
+}
+.card-carrinho{
+    display:flex;
+    gap:25px;
+    align-items:center;
+
+    padding:20px;
+    margin-bottom:20px;
+
+    background:#1a1a1a;
+    border-radius:10px;
+    border:1px solid #333;
+}
+.card-carrinho img{
+    width:140px;
+    height:200px;
+    object-fit:cover;
+    border-radius:8px;
+}
+.info-produto{
+    flex:1;
+}
+
+.info-produto h4{
+    margin-bottom:12px;
+    font-size:1.3rem;
+}
+
+.info-produto p{
+    margin:6px 0;
+}
+.btn-remover{
+    margin-top:15px;
+}
+.resumo{
+    background:#111;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px;
+    margin:35px 0;
+    box-shadow:0 4px 12px rgba(230,57,70,.35);
+}
+.resumo h3{
+    text-align:center;
+    margin-bottom:20px;
+}
+.linha-resumo{
+    display:flex;
+    justify-content:space-between;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #333;
+}
+
+.total{
+    font-size:1.2rem;
+    font-weight:bold;
+}
+.btn-finalizar{
+    width:100%;
+    margin-top:20px;
+}
+#sugestoes{
+    background:#111;
+    border:1px solid #333;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(230,57,70,.35);
+}
+#sugestoes h3{
+    text-align:center;
+    margin-bottom:25px;
+}
+.lista-sugestoes{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+.card-sugestao{
+    background:#1a1a1a;
+
+    border:1px solid #333;
+
+    border-radius:10px;
+
+    padding:15px;
+
+    text-align:center;
+
+    transition:.3s;
+}
+.card-sugestao:hover{
+    transform:translateY(-6px);
+
+    box-shadow:0 4px 12px rgba(230,57,70,.4);
+}
+.card-sugestao img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border-radius:8px;
+}
+.card-sugestao h4{
+    margin:15px 0 10px;
+}
+
+.card-sugestao p{
+    margin:4px 0;
+}
+.carrinho-vazio{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.carrinho-vazio h3{
+    margin-bottom:15px;
+}
+
+.carrinho-vazio p{
+    margin-bottom:20px;
+}
+@media(max-width:900px){
+
+    .lista-sugestoes{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .card-carrinho{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}

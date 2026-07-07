@@ -7,14 +7,14 @@ const mangas = [...new Set(produtos.map(produto => produto.name))];
 <div class="pesquisa-container" data-mangas={JSON.stringify(mangas)}>
     <input id = "pesquisa-input" type = "text" placeholder = "Pesquisar mangás">
     <button type = "button">Pesquisar</button>
-    <ul id = "sugestoes">
+    <ul id = "sugestoes-pesquisa">
 
     </ul>
 </div>
 <script>
     const container = document.querySelector(".pesquisa-container");
     const input = document.getElementById("pesquisa-input");
-    const suggestions = document.getElementById("sugestoes");
+    const suggestions = document.getElementById("sugestoes-pesquisa");
     const mangas = JSON.parse(container.dataset.mangas);
     input.addEventListener("input", () => {
         const texto = input.value;
