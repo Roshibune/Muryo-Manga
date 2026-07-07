@@ -1,0 +1,90 @@
+/* catalogo.css */
+
+/* Seção do catálogo */
+.catalogo-section {
+  max-width: 1200px;   /* mesma largura do grid */
+  margin: 0 auto;      /* centraliza no meio da tela */
+  padding: 20px;
+}
+
+/* Título do catálogo */
+.catalogo-section h2 {
+  text-align: center;  /* centralizado acima dos cards */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 24px;
+  color: #fff;
+  border-bottom: 2px solid #e63946; /* linha decorativa */
+  padding-bottom: 8px;
+}
+
+/* Grid dos produtos */
+.produtos-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* força 5 colunas */
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Card individual */
+.card {
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(230, 57, 70, 0.6);
+}
+
+/* Imagem do produto */
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* Conteúdo do card */
+.card h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 12px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #e63946;
+  font-weight: bold;
+  margin: 0 12px 12px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+  .produtos-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .produtos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card img {
+    height: 220px;
+  }
+
+  .card h3 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+}

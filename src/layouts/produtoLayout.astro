@@ -1,5 +1,6 @@
 ---
 import Layout from "./layout.astro";
+import "../styles/produtoLayout.css";
 const { produto } = Astro.props;
 ---
 
@@ -8,15 +9,11 @@ const { produto } = Astro.props;
     <img src={produto.image} alt={produto.name} />
     <h2>{produto.name} Vol. {produto.volume}</h2>
     <p>Preço: R$ {produto.price}</p>
-
-    <!-- Mostra estoque -->
     <p>Estoque disponível: {produto.stock}</p>
 
-    <!-- Campo para escolher quantidade -->
     <label for="quantidade">Quantidade:</label>
     <input type="number" id="quantidade" min="1" max={produto.stock} value="1" />
 
-    <!-- Botão com todos os dados do produto -->
     <button 
       id="btn-carrinho" 
       data-id={produto.id} 
@@ -28,6 +25,20 @@ const { produto } = Astro.props;
       disabled={produto.stock === 0}>
       {produto.stock === 0 ? "Produto esgotado" : "Adicionar ao Carrinho"}
     </button>
+  </section>
+
+  <!-- Área de comentários -->
+  <section class="comentarios">
+    <h3>Comentários</h3>
+    {produto.comments && produto.comments.length > 0 ? (
+      produto.comments.map((texto) => (
+        <div class="comentario">
+          <p>{texto}</p>
+        </div>
+      ))
+    ) : (
+      <p>Este produto ainda não possui comentários.</p>
+    )}
   </section>
 
   <script>

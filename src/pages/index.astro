@@ -1,19 +1,22 @@
 ---
 import Layout from "../layouts/layout.astro";
 import produtos from "../data/produtos.json";
+import "../styles/catalogo.css";
 ---
 
 <Layout title="Início">
-  <h2>Catálogo de Mangás</h2>
-  <div class="produtos-grid">
-    {produtos.map((produto) => (
-      <a href={`/produto/${produto.id}`} class="card">
-        <img src={produto.image} alt={produto.name} />
-        <h3>{produto.name} Vol. {produto.volume}</h3>
-        <p>R$ {produto.price}</p>
-      </a>
-    ))}
-  </div>
+  <section class="catalogo-section">
+    <h2>Catálogo de Mangás</h2>
+    <div class="produtos-grid">
+      {produtos.map((produto) => (
+        <a href={`/produto/${produto.id}`} class="card">
+          <img src={produto.image} alt={produto.name} />
+          <h3>{produto.name} Vol. {produto.volume}</h3>
+          <p>R$ {produto.price}</p>
+        </a>
+      ))}
+    </div>
+  </section>
 
   <script>
     window.addEventListener("DOMContentLoaded", () => {
