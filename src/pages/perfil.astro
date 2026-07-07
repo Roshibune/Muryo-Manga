@@ -1,10 +1,14 @@
 ---
 import Layout from "../layouts/layout.astro";
+import "../styles/perfil.css";
 ---
 
 <Layout title="Perfil do Cliente">
   <section class="perfil">
-    <img id="foto-perfil" alt="Foto de perfil" />
+    <div class="foto-perfil-container">
+      <img id="foto-perfil" alt="" />
+      <span id="icone-perfil">👤</span>
+    </div>
     <h2 id="nome-usuario"></h2>
     <p id="email"></p>
 
@@ -17,7 +21,22 @@ import Layout from "../layouts/layout.astro";
   <script>
     const cliente = JSON.parse(localStorage.getItem("cliente"));
     if (cliente) {
-      document.getElementById("foto-perfil").src = cliente.foto;
+      const foto = document.getElementById("foto-perfil");
+      const icone = document.getElementById("icone-perfil");
+      if (cliente.foto) 
+      {
+        foto.src = cliente.foto;
+        foto.onload = () => 
+        {
+          foto.style.display = "block";
+          icone.style.display = "none";
+        };
+        foto.onerror = () => 
+        {
+          foto.style.display = "none";
+          icone.style.display = "block";
+        };
+      }
       document.getElementById("nome-usuario").textContent = cliente.username;
       document.getElementById("email").textContent = cliente.email;
 
