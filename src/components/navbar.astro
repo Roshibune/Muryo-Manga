@@ -19,6 +19,13 @@ import "../styles/navbar.css";
     const menu = document.getElementById("menu-links");
     const searchContainer = document.getElementById("search-container");
 
+    // ADICIONE ESTE TRECHO AQUI
+    const paginaAtual = window.location.pathname;
+
+    if (paginaAtual === "/login") {
+      searchContainer.style.display = "none";
+    }
+
     menu.innerHTML = "";
 
     if (cliente) {
