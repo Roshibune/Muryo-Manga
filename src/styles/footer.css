@@ -57,6 +57,11 @@ footer a:hover {
 
 footer div:last-child p {
   margin-top: 20px;
-  font-size: 0.9rem;
+  
   color: #aaa;
+}
+
+.footer-aviso {
+  font-weight: bold;
+  font-size: 1.2rem;
 }
