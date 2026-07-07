@@ -4,7 +4,10 @@ import "../styles/navbar.css";
 ---
 
 <nav class="navbar">
-  <img src="../imagens/logo.png" alt="Logo da Muryo Mangás" class="logo"/>
+  <div class="logo-area">
+    <img src="../imagens/logo.png" alt="Logo da Muryo Mangás" class="logo"/>
+    <h1>Muryo<br>Mangás</h1>
+  </div>
   <ul id="menu-links"></ul>
 
   <div id="search-container">
@@ -19,7 +22,6 @@ import "../styles/navbar.css";
     const menu = document.getElementById("menu-links");
     const searchContainer = document.getElementById("search-container");
 
-    // ADICIONE ESTE TRECHO AQUI
     const paginaAtual = window.location.pathname;
 
     if (paginaAtual === "/login") {

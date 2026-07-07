@@ -7,12 +7,11 @@
   padding: 12px 24px;
 }
 
-.navbar img {
-  max-height: 150px;
-  max-width: 400px;
-  width: auto;
-  height: auto;
-  object-fit: contain;
+.logo {
+    max-height: 130px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
 }
 
 .navbar ul {
@@ -75,4 +74,15 @@
   #search-container input {
     width: 100%;
   }
+}
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.logo-area h1 {
+    font-size: 2.2rem;
+    line-height: 1;
+    color: white;
+    margin: 0;
 }
