@@ -7,24 +7,45 @@ const { produto } = Astro.props;
 <Layout title={produto.name}>
   <section class="produto-detalhe">
     <img src={produto.image} alt={produto.name} />
-    <h2>{produto.name} Vol. {produto.volume}</h2>
-    <p>Preço: R$ {produto.price}</p>
-    <p>Estoque disponível: {produto.stock}</p>
 
-    <label for="quantidade">Quantidade:</label>
-    <input type="number" id="quantidade" min="1" max={produto.stock} value="1" />
+    <div class="produto-info">
+      <h2>{produto.name} Vol. {produto.volume}</h2>
+      <p class="produto-preco">Preço: R$ {produto.price}</p>
 
-    <button 
-      id="btn-carrinho" 
-      data-id={produto.id} 
-      data-stock={produto.stock}
-      data-nome={produto.name}
-      data-preco={produto.price}
-      data-imagem={produto.image}
-      data-volume={produto.volume}
-      disabled={produto.stock === 0}>
-      {produto.stock === 0 ? "Produto esgotado" : "Adicionar ao Carrinho"}
-    </button>
+      <div class="produto-card-interno">
+        <p>Em estoque</p>
+        <label for="quantidade">Quantidade:</label>
+        <select id="quantidade">
+          {Array.from({ length: produto.stock }, (_, i) => i + 1).map((qtd) => (
+            <option value={qtd}>{qtd}</option>
+          ))}
+        </select>
+      </div>
+
+      <div class="btn-wrapper">
+        <button 
+          id="btn-carrinho" 
+          data-id={produto.id} 
+          data-stock={produto.stock}
+          data-nome={produto.name}
+          data-preco={produto.price}
+          data-imagem={produto.image}
+          data-volume={produto.volume}
+          disabled={produto.stock === 0}>
+          {produto.stock === 0 ? "Produto esgotado" : "Adicionar ao Carrinho"}
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="produto-descricao">
+    <h3>Detalhes do Produto</h3>
+    <p><strong>Nome:</strong> {produto.name}</p>
+    <p><strong>Volume:</strong> {produto.volume}</p>
+    <p><strong>Autor:</strong> {produto.author}</p>
+    <p><strong>Descrição:</strong> {produto.description}</p>
+    <p><strong>Categoria:</strong> {produto.category}</p>
+    <p><strong>Idioma:</strong> Português(Brasil)</p>
   </section>
 
   <section class="comentarios">
