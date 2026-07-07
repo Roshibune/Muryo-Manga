@@ -1,0 +1,47 @@
+.inserir-titulo {
+  font-size: 1.6rem;
+  color: #4caf50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 6px;
+}
+
+.inserir-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.inserir-form input,
+.inserir-form textarea {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 10px;
+  color: #ddd;
+}
+
+.inserir-form input:focus,
+.inserir-form textarea:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.6);
+  outline: none;
+}
+
+.inserir-form button {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.inserir-form button:hover {
+  background-color: #66bb6a;
+}

@@ -1,0 +1,45 @@
+.alterar-titulo {
+  font-size: 1.6rem;
+  color: #2196f3;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #2196f3;
+  padding-bottom: 6px;
+}
+
+.alterar-lista li {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 14px;
+  color: #ddd;
+  box-shadow: 0 2px 6px rgba(33, 150, 243, 0.3);
+}
+
+.alterar-lista li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(33, 150, 243, 0.5);
+}
+
+.alterar-lista strong {
+  color: #fff;
+}
+
+.alterar-lista button {
+  background-color: #2196f3;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.alterar-lista button:hover:not(:disabled) {
+  background-color: #42a5f5;
+}
+
+.alterar-lista button:disabled {
+  background-color: #444;
+  color: #888;
+}

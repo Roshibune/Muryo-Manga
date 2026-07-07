@@ -1,11 +1,16 @@
-<form id="form-admin">
+---
+import "../../styles/admin/gerenciarAdmins.css";
+---
+<h3 class="admins-titulo">Gerenciar Admins</h3>
+
+<form id="form-admin" class="admins-form">
   <input type="text" id="admin-usuario" placeholder="Usuário" required />
   <input type="password" id="admin-senha" placeholder="Senha" required />
   <button type="submit">Criar</button>
 </form>
 
-<h3>Lista de Administradores</h3>
-<ul id="lista-admins"></ul>
+<h3 class="admins-titulo">Lista de Administradores</h3>
+<ul id="lista-admins" class="admins-lista"></ul>
 
 <script>
   function carregarAdmins() {

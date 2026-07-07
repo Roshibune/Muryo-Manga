@@ -4,6 +4,7 @@ import InserirProduto from "../components/admin/inserirProduto.astro";
 import AlterarProduto from "../components/admin/alterarProduto.astro";
 import ExcluirProduto from "../components/admin/excluirProduto.astro";
 import GerenciarAdmins from "../components/admin/gerenciarAdmins.astro";
+import "../styles/admin/admin.css";
 ---
 
 <Layout title="Administração">
@@ -32,28 +33,33 @@ import GerenciarAdmins from "../components/admin/gerenciarAdmins.astro";
   </section>
 
   <script>
-    const admin = JSON.parse(localStorage.getItem("admin"));
-    if (!admin) {
-      window.location.href = "/login";
-    }
+  const admin = JSON.parse(localStorage.getItem("admin"));
+  if (!admin) {
+    window.location.href = "/login";
+  }
 
-    if (!admin.principal) {
-      const btnAdmins = document.getElementById("btn-admins");
-      btnAdmins.disabled = true;
-      btnAdmins.classList.add("disabled-btn");
-    }
+  if (!admin.principal) {
+    const btnAdmins = document.getElementById("btn-admins");
+    btnAdmins.disabled = true;
+    btnAdmins.classList.add("disabled-btn");
+  }
 
-    function abrirAba(nome) {
-      document.querySelectorAll(".aba").forEach(div => div.style.display = "none");
-      document.getElementById("aba-" + nome).style.display = "block";
-    }
+  function abrirAba(nome) {
+    document.querySelectorAll(".aba").forEach(div => div.style.display = "none");
+    document.getElementById("aba-" + nome).style.display = "block";
+  }
 
-    document.querySelectorAll(".tab-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        if (btn.disabled) return; // não abre aba se botão estiver desabilitado
-        const nome = btn.getAttribute("data-aba");
-        abrirAba(nome);
-      });
+  document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      if (btn.disabled) return;
+
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+
+      btn.classList.add("active");
+
+      const nome = btn.getAttribute("data-aba");
+      abrirAba(nome);
     });
-  </script>
+  });
+</script>
 </Layout>

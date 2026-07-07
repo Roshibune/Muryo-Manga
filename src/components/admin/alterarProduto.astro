@@ -1,9 +1,10 @@
 ---
 import produtos from "../../data/produtos.json";
+import "../../styles/admin/alterarProduto.css";
 ---
 
-<h3>Lista de Produtos (Alterar)</h3>
-<ul>
+<h3 class="alterar-titulo">Lista de Produtos (Alterar)</h3>
+<ul class="alterar-lista">
   {produtos.map(p => (
     <li>
       <strong>{p.id} - {p.nome}</strong> ({p.volume})  
