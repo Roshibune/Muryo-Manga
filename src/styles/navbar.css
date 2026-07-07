@@ -14,20 +14,20 @@
     object-fit: contain;
 }
 
-.navbar ul {
-  list-style: none;
-  display: flex;
-  gap: 32px;
-  font-size: 1.3rem;
+.menu-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+    font-size: 1.3rem;
 }
 
-.navbar ul li a {
+.menu-links li a {
   color: #fff;
   font-weight: 600;
   transition: color 0.3s ease, border-bottom 0.3s ease;
 }
 
-.navbar ul li a:hover {
+.menu-links li a:hover {
   color: #e63946;
   border-bottom: 2px solid #e63946;
 }
